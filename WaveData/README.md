@@ -12,7 +12,7 @@ This is responsible for drawing edge line, marking point and text on the left.
 
 ## CriticalLine
 
-This is responsible for drawing critical line. the `heigh` of this line is converted `float value` and notified `WaveBars` and external class implemented `ExternalCLValueListener interface`.
+This is responsible for drawing critical line. the `height` of this line is converted `float value` and notified `WaveBars` and external class implemented `ExternalCLValueListener interface`.
 
 ## WaveBars
 
@@ -20,7 +20,7 @@ This is responsible for drawing and animating bars up and down according to arra
 
 To do this, this implement SurfaceView and repeat drawing bars according to `period` and `oneFramePeriod` input when initialized.
 
-Also this compare the `maximum value` of array with `heigh value` notified from CriticalLine. If `maximum value` is greater than `heigh value`, it is notified to Warning through `WarningListener interface`.
+Also this compare the `maximum value` of array with `height value` notified from `CriticalLine`. If `maximum value` is greater than `height value`, it is notified to Warning through `WarningListener interface`.
 
 ## Warning
 
@@ -42,13 +42,15 @@ Parameters and these meaning are as follow.
 
 `backColor` Background color. Acturally it is only used at WaveBars. (other views background color is transparent)
 
-`extraRateHeigh_hor` The ratio EdgeLine occupy when orientation is horizontal mode.
+`extraRateHeight_hor` The ratio EdgeLine occupy when orientation is horizontal mode.
 
 `extraRateWidth_hor`
 
-`extraRateHeigh_ver` The ratio EdgeLine occupy when orientation is vertical mode.
+`extraRateHeight_ver` The ratio EdgeLine occupy when orientation is vertical mode.
 
 `extraRateWidth_ver`
+
+`maxValue` Max data size received from a peer. `View's height` x `extraRateHeight_hor/ver` is corresponding to this.
 
 `debugMode` is not implemented yet.
 
@@ -60,7 +62,7 @@ Parameters and these meaning are as follow.
 
 `unit` String indicated on the top left. This is always enclosed in parentheses.
 
-`edgeMaxValue`
+`edgeMaxValue` This is converted to string then, 1/4, 1/2, 3/4 times value
 
 `isFraction`
 
@@ -103,3 +105,5 @@ Parameters and these meaning are as follow.
 `warnTime`
 
 `twinkNum`
+
+# Methids
