@@ -20,7 +20,7 @@ This is responsible for drawing and animating bars up and down according to arra
 
 To do this, this implement SurfaceView and repeat drawing bars according to `period` and `oneFramePeriod` input when initialized.
 
-Also this compare the `maximum value` of array with 'heigh value` notified from CriticalLine. If `maximum value` is greater than `heigh value`, it is notified to Warning through `WarningListener interface`.
+Also this compare the `maximum value` of array with `heigh value` notified from CriticalLine. If `maximum value` is greater than `heigh value`, it is notified to Warning through `WarningListener interface`.
 
 ## Warning
 
