@@ -1,0 +1,26 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.tistory.joondong.wavedata.components.WaveBars
+        android:id="@+id/wavebars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.tistory.joondong.wavedata.components.EdgeLine
+        android:id="@+id/edgeline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.tistory.joondong.wavedata.components.Warning
+        android:id="@+id/warning"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.tistory.joondong.wavedata.components.CriticalLine
+        android:id="@+id/criticalline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

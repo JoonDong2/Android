@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NDSActivity">
+
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        style="@style/nRFHeaderShadow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/broadcast_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mic sensor and BLE broadcast."/>
+            <Switch
+                android:id="@+id/broadcast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:switchPadding="5dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/connection_vibration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/broadcast_layout"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/action_connect"
+                style="@style/Widget.Connect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:onClick="onConnectClicked"
+                android:text="@string/action_connect" />
+
+            <ImageView
+                android:id="@+id/vibration_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_toEndOf="@+id/action_connect"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/vibration_n" />
+
+            <Switch
+                android:id="@+id/vibration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/vibration_img"
+                android:layout_marginStart="5dp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/app_name"
+            android:layout_width="30dp"
+            android:layout_height="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/noisedetector" />
+
+        <LinearLayout
+            android:id="@+id/baterry_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/battery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/battery"
+                android:freezesText="true"
+                android:gravity="center"
+                android:text="@string/not_available"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/device_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:freezesText="true"
+                android:maxLines="1"
+                android:text="@string/nds_default_name"
+                android:textAllCaps="true"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/wavedataframe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/connection_vibration"
+            android:layout_below="@+id/baterry_device"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/app_name" />
+
+    </RelativeLayout>
+</LinearLayout>
