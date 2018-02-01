@@ -116,7 +116,7 @@ Parameters and these meaning are as follow.
 
 ### animateBars(float[] values, float maxValue)
 
-> This method calculate max value in `values` array and package the array to `ArrayBundle`.
+> This method calculates max value in `values` array and package the array to `ArrayBundle`.
 >
 > If byte array is input, it is converted float inside.
 >
