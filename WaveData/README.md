@@ -22,6 +22,8 @@ To do this, this implement SurfaceView and repeat drawing bars according to `per
 
 Also this compare the `maximum value` of array with `height value` notified from `CriticalLine`. If `maximum value` is greater than `height value`, it is notified to Warning through `WarningListener interface`.
 
+Received array is packaged to `ArrayBundle` instance
+
 ## Warning
 
 This is responsible for warning by twenkling warning color when WaveBars notify.
@@ -58,52 +60,68 @@ Parameters and these meaning are as follow.
 
 `lineWidth` Edge line width(DP). Acturally It is used at EdgeLine and WaveBars.
 
-`lineColor` Edge line's color
+`lineColor` Edge line's color.
 
 `unit` String indicated on the top left. This is always enclosed in parentheses.
 
-`edgeMaxValue` This is converted to string then, 1/4, 1/2, 3/4 times value
+`edgeMaxValue` This is converted to string then, 1/4, 1/2, 3/4 times value.
 
-`isFraction`
+`isFraction` If true, display decimal places of `value` converted from `edgeMaxValue` displayed next to vertical line.
 
-`numOfFraction`
+`numOfFraction` It indicates how many decimal places are displayed.
 
-`edgeFontSize_ver`
+`edgeFontSize_ver` The size of the `value` above in vertical mode.
 
-`edgeFontSize_hor`
+`edgeFontSize_hor` The size of the `value` above in horizontal mode.
 
-`edgeFontColor`
+`edgeFontColor` The color of the `value` above.
 
 **CriticalLine Settings**
 
-`criColor`
+`criColor` The color of the critical line.
 
-`criWidth`
+`criWidth` The width of the critical line.
 
-`criMinValue`
+`criMinValue` Minimum value about maxValue that critical line can down. This value is converted to height, then compared with the height converted from `maxValue`.
 
 **WaveBars settings**
 
-`barColor`
+`barColor` Color of bars animated up and down.
 
-`gradient`
+`gradient` If true, configured gradient about `barColor`.
 
-`gradientColor`
+`gradientColor` It indicates gradient color mixed with `barColor` if `gradient` is true.
 
-`intervalRate`
+`intervalRate` Interval between each bar.
 
-`period`
+`period` between up and down
 
-`oneFramePeriod`
+`oneFramePeriod` Number of frame during the time up and down(`period`)
 
-`autoAdjustPeriod`
+`autoAdjustPeriod` If true, period is reduced when the number of `ArrayBundle` in the buffer exceeds 3
 
 **Waring settings** 
 
-`warnColor`
+`warnColor` Warning color. It is displayed as radial gradient. 
 
-`warnTime`
+`warnTime` Twinkling time.
 
-`twinkNum`
+`twinkNum` The number of twinkle during `warnTime`.
 
-# Methids
+# Major methods
+
+### animateBars(float[] values)
+
+### animateBars(byte[] values)
+
+### animateBars(float[] values, float maxValue)
+
+> This method calculate max value in `values` array and package the array to `ArrayBundle`.
+>
+> If byte array is input, it is converted float inside.
+>
+> You can calculate and input max value directly in the external thread to reduce overhead of main thread.
+
+### setVibrator(boolean onOFF)
+
+> If onOFF is true, vibration occurs when max value of `ArrayBunle` exceeds the value converted from ciritical line's height.
