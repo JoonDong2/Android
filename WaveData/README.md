@@ -4,6 +4,8 @@ Acturally this project is graphic module implemeted for Noise Detector project, 
 
 This module animate bars up and down according to array received by using `SurfaceView`. You can configure only up animation by modifying `WaveBar`.
 
+You can see the figure and flow chart in [this blog](http://joondong.tistory.com/category/Android).
+
 This is composed of four major classes.
 
 ## EdgnLine
