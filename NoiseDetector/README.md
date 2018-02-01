@@ -8,4 +8,12 @@ Major functionalities run on `NDSService` finally extending `Service` so, the co
 
 Received data is processed in the `BleDataWrappingThread` of `NDSService` then sent to `WaveData` of `NDSActivity`.
 
-You can see the flow chart of this project in [this post](http://joondong.tistory.com/54?category=684945).
+## Flow chart
+
+You can see the flow chart of this project in [this post](http://joondong.tistory.com/54?category=684945)
+
+## Video
+
+You can see the video showing that this project communicate with nRF noise_detector in [this post](http://joondong.tistory.com/28?category=651762)
+
+Above blog is written in Korean, but I have plan to translate to English.
