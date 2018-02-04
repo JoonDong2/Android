@@ -58,6 +58,6 @@ You can see the flow chart of this project in [this post](http://joondong.tistor
 
 ## Video
 
-You can see the video showing that this project communicate with nRF noise_detector in [this post](http://joondong.tistory.com/28?category=651762)
+You can see the video showing that this project communicate with nRF noise_detector at the bottom of [this post](http://joondong.tistory.com/28?category=651762)
 
 Above blog is written in Korean, but I have plan to translate to English.

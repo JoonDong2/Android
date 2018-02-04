@@ -32,7 +32,7 @@ This is responsible for warning by twenkling warning color when WaveBars notify.
 
 ## Video
 
-You can see the action of this module in [the link](http://joondong.tistory.com/28?category=651762). the running application is noise detector and specific rectangular area in this is WaveData module.
+You can see the action of this module at the bottom of [the link](http://joondong.tistory.com/28?category=651762). the running application is noise detector and specific rectangular area in this is WaveData module.
 
 # Initailization
 
