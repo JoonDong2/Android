@@ -109,7 +109,7 @@ public class AppHelper {
 
     // Customer specific IoT endpoint
     // AWS Iot CLI describe-endpoint call returns: XXXXXXXXXX.iot.<region>.amazonaws.com,
-    private static final String CUSTOMER_SPECIFIC_ENDPOINT = "Set your IoT Custom Endpoint";
+    private static final String CUSTOMER_SPECIFIC_ENDPOINT = Set your IoT Custom Endpoint;
     // Name of the AWS IoT policy to attach to a newly created certificate
     private static final String AWS_IOT_BASIC_POLICY_NAME = "LEDCtrPolicy";
     private static final String AWS_IOT_BASIC_THING_NAME = "LEDButton";
