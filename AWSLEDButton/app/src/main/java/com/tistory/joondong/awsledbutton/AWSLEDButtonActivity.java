@@ -111,7 +111,7 @@ public class AWSLEDButtonActivity extends AppCompatActivity {
             mIotAndroidClient = new AWSIotClient(AppHelper.getCredentialsProvider());
             mIotAndroidClient.setRegion(region);
             attachPrincipalPolicyRequest.setPrincipal(AppHelper.getCredentialsProvider().getIdentityId());
-            attachPrincipalPolicyRequest.setPolicyName(AppHelper.getBasicPolicyName() + dsn);
+            attachPrincipalPolicyRequest.setPolicyName(AppHelper.getBasicPolicyName());
             try {
                 mIotAndroidClient.attachPrincipalPolicy(attachPrincipalPolicyRequest);
             } catch (Exception e) {
@@ -732,7 +732,7 @@ public class AWSLEDButtonActivity extends AppCompatActivity {
     }
 
     private void setConsole() {
-        // TODO : 콘솔 내용을 규격화
+        // TODO : 肄섏넄 �궡�슜�쓣 洹쒓꺽�솕
     }
 
     private void setLightImg(boolean light) {
