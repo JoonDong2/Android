@@ -9,3 +9,7 @@ This project communicate with [nRF51 noise_detector](https://github.com/JoonDong
 ## WaveData
 
 This project animates bars up and down according to data received.
+
+## AWSLEDButton
+
+This project, implemented on AWS Android SDK, communicate with [**AWS/esp32_led_button**](https://github.com/JoonDong2/AWS/tree/master/esp32_led_button) through AWS IoT and is responsible for client in the mqtt protocol.
