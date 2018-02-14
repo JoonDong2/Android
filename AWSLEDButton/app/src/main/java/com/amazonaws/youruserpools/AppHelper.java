@@ -103,8 +103,7 @@ public class AppHelper {
      * e.g. if your user pools are in US East (N Virginia) then set cognitoRegion = Regions.US_EAST_1.
      */
 
-    // Cognito pool ID. For this app, pool needs to be unauthenticated pool with
-    // AWS IoT permissions.
+    // Cognito pool ID. For this app, pool needs to be authenticated pool with AWS IoT permissions.
     private static final String COGNITO_POOL_ID = Your Cognito Identities Pool ID
 
     // Customer specific IoT endpoint
