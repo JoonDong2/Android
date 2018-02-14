@@ -84,38 +84,38 @@ public class AppHelper {
     /**
      * Add your pool id here
      */
-    private static final String userPoolId = Set your Cognito User Pool ID;
+    private static final String USER_POOL_ID = Your Cognito User Pool ID
 
     /**
      * Add you app id : Your client id here
      */
-    private static final String clientId = Set your App Client ID of User Pool;
+    private static final String CLIENT_ID = App Client ID of your User Pool
 
     /**
      * App secret associated with your app id - if the App id does not have an associated App secret,
      * set the App secret to null.
      * e.g. clientSecret = null;
      */
-    private static final String clientSecret = Set your App Client Secret of User Pool;
+    private static final String CLIENT_SECRET = App Client Secret of your User Pool
 
     /**
      * Set Your User Pools region.
      * e.g. if your user pools are in US East (N Virginia) then set cognitoRegion = Regions.US_EAST_1.
      */
 
-    // Cognito pool ID. For this app, pool needs to be authenticated pool with AWS IoT permissions.
-    private static final String COGNITO_POOL_ID = Set your Cognito ID Pool ID;
+    // Cognito pool ID. For this app, pool needs to be unauthenticated pool with
+    // AWS IoT permissions.
+    private static final String COGNITO_POOL_ID = Your Cognito Identities Pool ID
 
     // Customer specific IoT endpoint
     // AWS Iot CLI describe-endpoint call returns: XXXXXXXXXX.iot.<region>.amazonaws.com,
-    private static final String CUSTOMER_SPECIFIC_ENDPOINT = Set your IoT Custom Endpoint;
-
+    private static final String CUSTOMER_SPECIFIC_ENDPOINT = Your Custom Endpoint of AWS IoT
     // Name of the AWS IoT policy to attach to a newly created certificate
     private static final String AWS_IOT_BASIC_POLICY_NAME = "LEDCtrPolicy";
     private static final String AWS_IOT_BASIC_THING_NAME = "LEDButton";
 
     // Region of AWS IoT
-    private static final Regions MY_REGION = Set your Region as the Regions instance.
+    private static final Regions MY_REGION = Your Region as REGIONS instatnce
 
     // User details from the service
     private static CognitoUserSession currSession;
@@ -145,15 +145,11 @@ public class AppHelper {
         }
 
         if (userPool == null) {
-
-            // Create a user pool with default ClientConfiguration
-            //userPool = new CognitoUserPool(context, userPoolId, clientId, clientSecret, MY_REGION);
-
             // This will also work
             ClientConfiguration clientConfiguration = new ClientConfiguration();
             AmazonCognitoIdentityProvider cipClient = new AmazonCognitoIdentityProviderClient(new AnonymousAWSCredentials(), clientConfiguration);
             cipClient.setRegion(Region.getRegion(MY_REGION));
-            userPool = new CognitoUserPool(context, userPoolId, clientId, clientSecret, cipClient);
+            userPool = new CognitoUserPool(context, USER_POOL_ID, CLIENT_ID, CLIENT_SECRET, cipClient);
         }
 
         phoneVerified = false;
@@ -470,7 +466,7 @@ public class AppHelper {
                 return false;
             }
             Map<String, String> logins = new HashMap<String, String>();
-            logins.put("cognito-idp.us-east-1.amazonaws.com/" + userPoolId, idToken);
+            logins.put("cognito-idp.us-east-1.amazonaws.com/" + USER_POOL_ID, idToken);
             credentialsProvider.setLogins(logins);
             // TODO : necessary ??
             Thread refresh = new Thread(new Runnable() {
@@ -626,7 +622,7 @@ public class AppHelper {
                         item.setMessageColor(Color.parseColor("#E94700"));
                     }
                 }
-                
+
                 currDisplayedItems.add(item);
                 currUserAttributes.add(det);
                 itemCount++;
@@ -642,7 +638,4 @@ public class AppHelper {
     private static void deleteAttribute(String attributeName) {
 
     }
-
-
 }
-

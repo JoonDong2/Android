@@ -15,5 +15,12 @@ This project requires Cognito User Pool and Cognito Identities Pool(ID Pool) to 
 
 Unlike [AndroidSubPusWebSoket](https://github.com/awslabs/aws-sdk-android-samples/tree/master/AndroidPubSubWebSocket) example, a signed-in user through the Cognito User Pool assumes `authenticated role` of ID Pool.
 
-To do this, your User Pool should be linked to your ID Pool, and enter private information below in the [AppHelper]().
+To do this, your User Pool should be linked to your ID Pool, and enter private information below in the [AppHelper](https://github.com/JoonDong2/Android/blob/master/AWSLEDButton/app/src/main/java/com/amazonaws/youruserpools/AppHelper.java).
+
+`USER_POOL_ID` <- Your Cognito User Pool ID  
+`CLIENT_ID` <- App Client ID of your User Pool  
+`CLIENT_SECRET` <- App Client Secret of your User Pool  
+`COGNITO_POOL_ID` <- Your Cognito Identities Pool ID  
+`CUSTOMER_SPECIFIC_ENDPOIN` <- Your Custom Endpoint of AWS IoT  
+`MY_REGION` <- Your Region as REGIONS instatnce  
 
