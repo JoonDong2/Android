@@ -173,6 +173,28 @@ This is attached temperary credentials about `authenticate role` of the Cognito 
 
 you should note below code.
 <pre><code>
+AppHelper.getPool().getUser(username).getSessionInBackground(authenticationHandler);
+		.
+		.
+		.
+AuthenticationHandler authenticationHandler = new AuthenticationHandler() {
+        @Override
+        public void onSuccess(CognitoUserSession cognitoUserSession, CognitoDevice device) {
+            Log.d(TAG, "authenticationHandlers");
+            AppHelper.setCurrSession(cognitoUserSession);
+            AppHelper.newDevice(device);
+            if(AppHelper.updateCredentialsProvider()) { // TODO : À¯Áö?
+                Log.d(TAG, "Auth update success");
+            } else {
+                Log.d(TAG, "Auth is not updated");
+            }
+            closeWaitDialog();
+            launchUser();
+        }
+}
+		.
+		.
+		.
 public static boolean updateCredentialsProvider() {
     String idToken = null;
     if(currSession != null) {
