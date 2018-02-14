@@ -171,7 +171,7 @@ This is attached temperary credentials about `authenticate role` of the Cognito 
 
 # How to assume `Authenticated Role` of ID Pool?
 
-you should note below code. specially `CognitoCredentialsProvider::setLogins` method.
+you should note below code. specially, `CognitoCredentialsProvider::setLogins` method.
 <pre><code>
 AppHelper.getPool().getUser(username).getSessionInBackground(authenticationHandler);
 				.
@@ -183,10 +183,10 @@ AuthenticationHandler authenticationHandler = new AuthenticationHandler() {
             Log.d(TAG, "authenticationHandlers");
             AppHelper.setCurrSession(cognitoUserSession);
             AppHelper.newDevice(device);
-            if(AppHelper.updateCredentialsProvider()) { // TODO : À¯Áö?
-                Log.d(TAG, "Auth update success");
+            if(AppHelper.updateCredentialsProvider()) { 
+                Log.d(TAG, "Authentication update success");
             } else {
-                Log.d(TAG, "Auth is not updated");
+                Log.d(TAG, "Authentication is not updated");
             }
             closeWaitDialog();
             launchUser();
