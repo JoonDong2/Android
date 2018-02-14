@@ -4,12 +4,16 @@ This project, implemented on AWS Android SDK, communicate with [**AWS/esp32_led_
 
 To do this, subscribing, publishing and getting/updating shadow of the [AWS Android IoT SDK](https://github.com/aws/aws-sdk-android/tree/master/aws-android-sdk-iot/src/main/java/com/amazonaws/mobileconnectors/iot) are used.
 
+## Diagram
+
+[This post](http://joondong.tistory.com/71?category=692982)
+
 ## Video
 
 You can see the video of the entire projects, including Android app client at the bottom of [this post](http://joondong.tistory.com/61?category=651762).  
 This blog is written Korean, but I have plan to translate to English.
 
-# Provisioning
+# Provisioning/Configuration
 
 This project requires Cognito User Pool and Cognito Identities Pool(ID Pool) to authorize to AWS IoT in order to get temporary credentials in the Security Token Service(STS).
 
@@ -107,7 +111,7 @@ To do this, you should follow the procedure below.
 }
 </code></pre>
 
-## 2. Create a policy named `LEDCtrPolicy` like below. 
+## 4. Create a policy named `LEDCtrPolicy` like below. 
 
 This is attached temperary credentials about `authenticate role` of the Cognito ID Pool because the credentials created ouside of AWS IoT must get permissions about IoT access as a duplicate, although these policies are defined in the IAM `Authenticated Role`.
 
@@ -156,7 +160,7 @@ This is attached temperary credentials about `authenticate role` of the Cognito 
 }
 </code></pre>
 
-enter private information below in the [AppHelper](https://github.com/JoonDong2/Android/blob/master/AWSLEDButton/app/src/main/java/com/amazonaws/youruserpools/AppHelper.java).
+## 5. Enter private information below in the [AppHelper](https://github.com/JoonDong2/Android/blob/master/AWSLEDButton/app/src/main/java/com/amazonaws/youruserpools/AppHelper.java).
 
 `USER_POOL_ID` <- Your Cognito User Pool ID  
 `CLIENT_ID` <- App Client ID of your User Pool  
@@ -165,3 +169,35 @@ enter private information below in the [AppHelper](https://github.com/JoonDong2/
 `CUSTOMER_SPECIFIC_ENDPOIN` <- Your Custom Endpoint of AWS IoT  
 `MY_REGION` <- Your Region as REGIONS instatnce  
 
+# How to assume `Authenticated Role` of ID Pool?
+
+you should note below code.
+<pre><code>
+public static boolean updateCredentialsProvider() {
+    String idToken = null;
+    if(currSession != null) {
+        idToken = currSession.getIdToken().getJWTToken();
+        if(idToken == null) {
+            return false;
+        }
+        Map<String, String> logins = new HashMap<String, String>();
+        logins.put("cognito-idp.us-east-1.amazonaws.com/" + USER_POOL_ID, idToken);
+        credentialsProvider.setLogins(logins);
+        // TODO : necessary ??
+        Thread refresh = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    credentialsProvider.refresh();
+                } catch (Exception e) {
+                    Log.e(TAG, "Credential refresh error.", e);
+                }
+            }
+        });
+        refresh.start();
+
+        return true;
+    }
+    return false;
+}
+</code></pre>
