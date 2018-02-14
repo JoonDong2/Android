@@ -17,9 +17,9 @@ Unlike [AndroidSubPusWebSoket](https://github.com/awslabs/aws-sdk-android-sample
 
 To do this, you should follow the procedure below.
 
-1. create User Pool and ID Pool in the Cognito, and link User Pool to your ID Pool, and configure `authenticated role` and trusted relationship of your ID Pool in the IAM like below.
+## 1. create User Pool and ID Pool in the Cognito, and link User Pool to your ID Pool, and configure `authenticated role` and trusted relationship of your ID Pool in the IAM like below.
 
-### authenticated role
+### `Authenticated Role`'s Policies
 <pre><code>
 {
   "Version": "2012-10-17",
@@ -72,7 +72,7 @@ To do this, you should follow the procedure below.
 }
 </code></pre>
 
-### trusted relationship
+### Trusted Relationship
 <pre><code>
 {
   "Version": "2012-10-17",
@@ -103,7 +103,7 @@ To do this, you should follow the procedure below.
 }
 </code></pre>
 
-2. create a policy named `LEDCtrPolicy` like below. This is attached temperary credentials about `authenticate role` of the Cognito ID Pool because the credentials created ouside of AWS IoT must get permissions about IoT access as a duplicate.
+## 2. create a policy named `LEDCtrPolicy` like below. This is attached temperary credentials about `authenticate role` of the Cognito ID Pool because the credentials created ouside of AWS IoT must get permissions about IoT access as a duplicate.
 
 ### Policy
 <pre><code>
