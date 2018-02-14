@@ -103,13 +103,13 @@ public class AppHelper {
      * e.g. if your user pools are in US East (N Virginia) then set cognitoRegion = Regions.US_EAST_1.
      */
 
-    // Cognito pool ID. For this app, pool needs to be unauthenticated pool with
-    // AWS IoT permissions.
+    // Cognito pool ID. For this app, pool needs to be authenticated pool with AWS IoT permissions.
     private static final String COGNITO_POOL_ID = Set your Cognito ID Pool ID;
 
     // Customer specific IoT endpoint
     // AWS Iot CLI describe-endpoint call returns: XXXXXXXXXX.iot.<region>.amazonaws.com,
     private static final String CUSTOMER_SPECIFIC_ENDPOINT = Set your IoT Custom Endpoint;
+
     // Name of the AWS IoT policy to attach to a newly created certificate
     private static final String AWS_IOT_BASIC_POLICY_NAME = "LEDCtrPolicy";
     private static final String AWS_IOT_BASIC_THING_NAME = "LEDButton";
