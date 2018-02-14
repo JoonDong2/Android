@@ -470,7 +470,6 @@ public class AppHelper {
                 return false;
             }
             Map<String, String> logins = new HashMap<String, String>();
-            //logins.put("cognito-idp.us-east-1.amazonaws.com/us-east-1_ou1qbj91x", idToken);
             logins.put("cognito-idp.us-east-1.amazonaws.com/" + userPoolId, idToken);
             credentialsProvider.setLogins(logins);
             // TODO : necessary ??
